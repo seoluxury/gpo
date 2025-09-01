@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gpo Adsense - Maintenance Notice</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      color: #333;
+      padding: 20px;
+    }
+
+    .container {
+      background: #fff;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+      max-width: 500px;
+      width: 100%;
+      box-sizing: border-box;
+      border: 1px solid #eee;
+    }
+
+    h1 {
+      font-size: 26px;
+      margin-bottom: 16px;
+      color: #a99672;
+    }
+
+    p {
+      font-size: 16px;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .countdown div {
+      flex: 1;
+      padding: 12px;
+      margin: 0 6px;
+      background: #a99672;
+      color: white;
+      border-radius: 8px;
+    }
+
+    .countdown span {
+      display: block;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .countdown label {
+      font-size: 13px;
+      opacity: 0.95;
+    }
+
+    @media (max-width: 500px) {
+      .countdown {
+        flex-direction: column;
+      }
+
+      .countdown div {
+        margin: 6px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>We'll Be Back Soon!</h1>
+    <p>
+      Gpo Adsense is currently undergoing scheduled maintenance and system upgrades.<br/>
+      Please check back with us after <strong>8:00 PM (GMT+8), August 9, 2025</strong>.
+    </p>
+
+    <div class="countdown">
+      <div><span id="days">0</span><label>Days</label></div>
+      <div><span id="hours">0</span><label>Hours</label></div>
+      <div><span id="minutes">0</span><label>Minutes</label></div>
+      <div><span id="seconds">0</span><label>Seconds</label></div>
+    </div>
+
+    <p style="font-style: italic; font-size: 14px;">
+      ⏳ Please note: the maintenance may be completed earlier or later than expected.<br/>
+      We appreciate your understanding and patience.
+    </p>
+  </div>
+
+  <script>
+    const endTime = new Date("2025-08-09T20:00:00+08:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const timeLeft = endTime - now;
+
+      if (timeLeft <= 0) {
+        document.querySelector('.countdown').innerHTML = '<strong>✅ The system is now live!</strong>';
+        return;
+      }
+
+      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeLeft / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((timeLeft / (1000 * 60)) % 60);
+      const seconds = Math.floor((timeLeft / 1000) % 60);
+
+      document.getElementById("days").textContent = days;
+      document.getElementById("hours").textContent = hours;
+      document.getElementById("minutes").textContent = minutes;
+      document.getElementById("seconds").textContent = seconds;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+</body>
+</html>
