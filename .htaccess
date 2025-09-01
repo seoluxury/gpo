@@ -1,0 +1,32 @@
+RewriteEngine On
+
+
+#RewriteCond %{REMOTE_ADDR} ^167\.179\.194\.162$
+#RewriteRule ^$ /alista/ [L]
+
+# Nếu IP không khớp, vẫn chạy index.html như bình thường
+
+
+RewriteCond %{HTTP_HOST} ^melbournegpo\.com$ [NC]
+RewriteRule ^(.*)$ https://www.melbournegpo.com/$1 [L,R=301]
+
+RewriteRule ^centre-hours/?$ centre-hours.php [L]
+RewriteRule ^centre-plan/?$ centre-plan.php [L]
+RewriteRule ^chinh-sach-va-quyen-rieng-tu/?$ chinh-sach-va-quyen-rieng-tu.php [L]
+RewriteRule ^contact/?$ contact.php [L]
+RewriteRule ^getting-here/?$ getting-here.php [L]
+RewriteRule ^leasing/?$ leasing.php [L]
+RewriteRule ^our-story/?$ our-story.php [L]
+RewriteRule ^retail-directory/?$ retail-directory.php [L]
+RewriteRule ^terms-conditions/?$ terms-conditions.php [L]
+#RewriteRule ^whats-on/?$ whats-on.php [L]
+RewriteRule ^adsense/?$ adsense.php [L]
+RewriteRule ^admina/?$ admin.php [L]
+
+
+
+
+
+
+
+
